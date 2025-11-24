@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copaws - 聯絡我們</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #E7F5EE;
+      --circle: #D5EFD8;
+      --brown: #885F0F;
+      --dark: #372500;
+      --green: #00510A;
+      --muted: #767676;
+      --accent: #DBA53C;
+      --nav-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* 整頁容器，跟 index 一樣用 max-width 控制 */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 40px 48px 120px 48px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    /* 右邊大圓背景，效 果跟 Figma 類似 */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 1701px;
+      height: 1701px;
+      right: -600px;
+      top: -520px;
+      background: var(--circle);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    /* 上方 Logo 區塊 */
+    .hero-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 96px;
+    }
+
+    .logo {
+      width: 181px;
+      height: 65px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* 主內容左右兩欄 */
+    .hero-main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    /* 左側文案 */
+    .left-content {
+      max-width: 520px;
+      flex: 1 1 40%;
+    }
+
+    .main-title {
+      color: var(--brown);
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .main-description {
+      color: var(--dark);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* 右側卡片區 */
+    .right-content {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding-right: 16px;
+    }
+
+    .feature-card {
+      padding: 20px;
+      background: #fff;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .feature-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-title {
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .feature-diamond {
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .feature-subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .feature-desc {
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    /* 下方導覽列，貼齊整頁寬度（跟 index 類似） */
+    .nav {
+      width: 100%;
+      background: var(--nav-bg);
+      border-top-right-radius: 32px;
+      display: flex;
+      align-items: center;
+
+      /* 原本是 justify-content: center; 改成靠左 */
+      justify-content: flex-start;
+
+      /* 左邊留一點內距，讓位置跟設計稿比較像 */
+      padding: 16px 48px;
+
+      margin-top: auto;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+
+    .nav-item {
+      width: 80px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-item a {
+      font-size: 18px;
+      color: var(--dark);
+      font-weight: 400;
+      line-height: 27px;
+      text-decoration: none;
+    }
+
+    .nav-item.active a {
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+
+    .nav-item a:hover {
+      color: var(--green);
+    }
+
+    .nav-item.active::before {
+      content: '';
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 32px;
+      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.0089 14.9922C18.6307 16.6138 19.4871 18.9093 19.4197 21.4562C19.3581 23.9081 18.4431 26.4917 16.8476 28.7306C15.8856 30.0768 14.4338 30.8443 12.853 30.8443C12.8266 30.8443 12.8002 30.8443 12.7738 30.8437C11.1167 30.8173 9.76762 29.9662 9.0755 28.5092C8.50362 27.2994 7.72344 26.1981 6.7615 25.2367C5.80244 24.2762 4.69969 23.4975 3.49138 22.9229C2.03375 22.2316 1.18319 20.8837 1.15681 19.2248C1.13044 17.6135 1.90175 16.1298 3.2685 15.1535C5.50925 13.5568 8.09012 12.6423 10.5449 12.5793C13.0906 12.5143 15.387 13.3707 17.0089 14.9922ZM4.99881 10.2586C5.43875 10.505 5.92856 10.6275 6.43594 10.6275C6.93163 10.6275 7.44488 10.5117 7.95806 10.2788C8.91419 9.84359 9.753 9.03996 10.3219 8.01496C10.8938 6.99053 11.1343 5.85228 10.9994 4.81053C10.8528 3.68046 10.2926 2.79184 9.42156 2.30671C8.5505 1.82165 7.49763 1.8149 6.46231 2.28678C5.50619 2.72178 4.6645 3.52621 4.0955 4.55065C3.5265 5.57478 3.286 6.71303 3.42094 7.75478C3.56469 8.88484 4.12481 9.77378 4.99881 10.2586ZM16.7302 11.03C17.0177 11.0293 17.3197 11.0012 17.6277 10.9437C18.8712 10.7105 20.1206 10.0175 21.1471 8.99103C22.1707 7.9654 22.8658 6.7154 23.0975 5.4719C23.3527 4.11984 23.0417 2.92678 22.2264 2.11234C21.414 1.2979 20.2203 0.988151 18.8683 1.2419C17.6248 1.47446 16.3754 2.16809 15.3489 3.19371C14.3224 4.21934 13.6302 5.46928 13.3956 6.71315C13.1434 8.0649 13.4513 9.25803 14.2667 10.073C14.8972 10.7018 15.7507 11.03 16.7302 11.03ZM29.6935 22.5787C29.2096 21.7076 28.318 21.1468 27.1888 21.0011C26.1476 20.8668 25.0097 21.1067 23.9861 21.6762C22.9596 22.2461 22.156 23.087 21.7219 24.043C21.2497 25.0792 21.2556 26.1307 21.7425 27.0023C22.2264 27.8737 23.1151 28.4341 24.2442 28.5798C24.4349 28.6042 24.6255 28.6162 24.822 28.6162C25.6959 28.6162 26.6111 28.371 27.4498 27.905C28.4734 27.3348 29.277 26.4943 29.714 25.5378C30.1862 24.5017 30.1774 23.4505 29.6935 22.5792C29.6935 22.5793 29.6935 22.5793 29.6935 22.5787ZM29.8871 9.77234C29.0746 8.9579 27.8809 8.64878 26.5289 8.90184C25.2854 9.13503 24.036 9.82803 23.0095 10.8537C21.983 11.8798 21.2908 13.1298 21.0562 14.3737C20.804 15.7255 21.112 16.9185 21.9273 17.733C22.5579 18.3624 23.4113 18.69 24.3909 18.69C24.6783 18.69 24.9804 18.6613 25.2854 18.6038C26.5289 18.3707 27.7812 17.6776 28.8077 16.652C29.8312 15.6255 30.5264 14.3755 30.7581 13.132C31.0103 11.7799 30.7024 10.5874 29.8871 9.77234Z' fill='%23DBA53C' fill-opacity='0.17'/%3E%3C/svg%3E");
+      background-size: contain;
+    }
+
+    /* ========= RWD：跟 index.html 一樣用 media query ========= */
+
+    @media (max-width: 1200px) {
+      .hero {
+        padding: 32px 32px 96px 32px;
+      }
+
+      .main-title {
+        font-size: 52px;
+      }
+
+      .feature-card {
+        border-radius: 60px;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        padding: 24px 20px 80px 20px;
+      }
+
+      .hero-header {
+        margin-bottom: 48px;
+      }
+
+      .hero-main {
+        flex-direction: column;
+      }
+
+      .left-content {
+        max-width: 100%;
+      }
+
+      .main-title {
+        font-size: 40px;
+      }
+
+      .main-description {
+        font-size: 16px;
+      }
+
+      .right-content {
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .feature-card {
+        border-radius: 40px;
+      }
+
+      .feature-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .feature-title {
+        font-size: 20px;
+      }
+
+      .feature-subtitle,
+      .feature-desc {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero::before {
+        right: -900px;
+        top: -600px;
+      }
+
+      .hero {
+        padding: 20px 16px 72px 16px;
+      }
+
+      .logo {
+        width: 140px;
+        height: auto;
+      }
+
+      .hero-main {
+        gap: 32px;
+      }
+
+      .main-title {
+        font-size: 32px;
+      }
+
+      .main-description {
+        font-size: 15px;
+      }
+
+      .feature-card {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 14px;
+      }
+
+      .feature-image {
+        width: 80px;
+        height: 80px;
+      }
+
+      .feature-title {
+        font-size: 18px;
+      }
+
+      .feature-subtitle,
+      .feature-desc {
+        font-size: 14px;
+      }
+
+      .nav {
+        padding: 12px 16px;
+        gap: 20px;
+      }
+
+      .nav-item a {
+        font-size: 16px;
+      }
+
+      .nav-item.active a {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="hero">
+      <header class="hero-header">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Copaws">
+        </div>
+      </header>
+
+      <section class="hero-main">
+        <div class="left-content">
+          <h1 class="main-title">讓照顧<br>變成能被看見的愛</h1>
+          <p class="main-description">
+            每一次看診、每一次旅行、每一次互動，都是愛的一部分。<br>
+            Copaws 將這些日常紀錄整合為可視化的資料，讓髮主能更了解特的健康狀況，<br>
+            讓獸醫能更精準地判斷，也讓品牌與旅宿能提供更貼心的照護體驗。
+          </p>
+        </div>
+
+        <div class="right-content">
+          <article class="feature-card">
+            <img class="feature-image" src="assets/contentus/1.png" alt="毛孩 ID">
+            <div class="feature-content">
+              <div class="feature-header">
+                <span class="feature-title">毛孩 ID</span>
+                <span class="feature-diamond">&#9670;</span>
+                <span class="feature-subtitle">一個屬於特的健康檔案</span>
+              </div>
+              <p class="feature-desc">
+                記錄每次看診、預防針、飲食與行為變化，讓健康軌跡清晰可見。
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-image" src="assets/contentus/2.png" alt="夥伴連結">
+            <div class="feature-content">
+              <div class="feature-header">
+                <span class="feature-title">夥伴連結</span>
+                <span class="feature-diamond">&#9670;</span>
+                <span class="feature-subtitle">醫師、旅宿、品牌一站整合</span>
+              </div>
+              <p class="feature-desc">
+                讓資訊不再分散，照護決策更快、更準確。
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <img class="feature-image" src="assets/contentus/3.png" alt="智慧洞察">
+            <div class="feature-content">
+              <div class="feature-header">
+                <span class="feature-title">智慧洞察</span>
+                <span class="feature-diamond">&#9670;</span>
+                <span class="feature-subtitle">用數據理解每一段陪伴</span>
+              </div>
+              <p class="feature-desc">
+                透過行為分析與提醒，讓愛更有方向。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="introudt.html">品牌介紹</a>
+      </div>
+      <div class="nav-item">
+        <a href="member.html">會員制度</a>
+      </div>
+      <div class="nav-item active">
+        <a href="content_us.html">聯絡我們</a>
+      </div>
+      <div class="nav-item">
+        <a href="content_us2.html">合作招募</a>
+      </div>
+    </nav>
+  </div>
+</body>
+</html>
