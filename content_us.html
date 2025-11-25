@@ -44,7 +44,7 @@
       width: 100%;
       max-width: 1440px;
       margin: 0 auto;
-      padding: 40px 48px 120px 48px;
+      padding: 0px 64px 120px 64px;
       background: var(--bg);
       overflow: hidden;
     }
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      margin-bottom: 96px;
+      margin-bottom: 40px;
     }
 
     .logo {
@@ -179,25 +179,21 @@
 
     /* 下方導覽列，貼齊整頁寬度（跟 index 類似） */
     .nav {
-      width: 100%;
-      background: var(--nav-bg);
-      border-top-right-radius: 32px;
+      width: fit-content;
+      background: white;
+      border-top-right-radius: 100px;
       display: flex;
       align-items: center;
-
-      /* 原本是 justify-content: center; 改成靠左 */
       justify-content: flex-start;
-
-      /* 左邊留一點內距，讓位置跟設計稿比較像 */
-      padding: 16px 48px;
-
+      padding: 20px 40px 20px 48px;
       margin-top: auto;
-      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.04);
+      margin-left: 0;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
 
     .nav-item {
-      width: 80px;
+      width: 100px;
       text-align: center;
       position: relative;
       display: flex;
@@ -206,16 +202,16 @@
     }
 
     .nav-item a {
-      font-size: 18px;
+      font-size: 22px;
       color: var(--dark);
       font-weight: 400;
-      line-height: 27px;
+      line-height: 32px;
       text-decoration: none;
     }
 
     .nav-item.active a {
       color: var(--green);
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 700;
       line-height: 24px;
     }
