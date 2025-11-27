@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -34,9 +34,25 @@
 
     /* 整頁容器，跟 index 一樣用 max-width 控制 */
     .page {
+      position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* 右邊大圓背景，效果跟 Figma 類似 */
+    .page::before {
+      content: '';
+      position: absolute;
+      width: 1701px;
+      height: 1701px;
+      right: -1100px;
+      top: -390px;
+      background: var(--circle);
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hero {
@@ -44,22 +60,9 @@
       width: 100%;
       max-width: none;
       margin: 0;
-      padding: 0px 64px 120px 64px;
-      background: var(--bg);
-      overflow: hidden;
-    }
-
-    /* 右邊大圓背景，效 果跟 Figma 類似 */
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 1701px;
-      height: 1701px;
-      right: -600px;
-      top: -520px;
-      background: var(--circle);
-      border-radius: 50%;
-      z-index: 0;
+      padding: 0px 64px 120px 48px;
+      background: transparent;
+      z-index: 1;
     }
 
     /* 上方 Logo 區塊 */
@@ -448,4 +451,3 @@
   </div>
 </body>
 </html>
-
