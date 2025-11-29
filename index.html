@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Light green background to match paw image edges */
       --bg: #E7F5EE;
       --circle: #D5EFD8;
       --brown: #885F0F;
@@ -38,27 +37,28 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      width: 100%;
+    }
+
+    @media (min-width: 1440px) {
+      .page {
+        max-width: 1440px;
+        height: 920px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
     }
 
     .hero {
-      position: relative;
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0px 0px -20px 48px;
-      background: var(--bg);
-      overflow: hidden;
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 48px 0 48px;
+      overflow: hidden;
     }
 
     .hero-header {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin-bottom: -100px;
-      margin-left: 48px;
+      padding-bottom: 20px;
     }
 
     .logo {
@@ -73,8 +73,7 @@
     }
 
     .hero-main {
-      position: relative;
-      z-index: 1;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -83,12 +82,10 @@
 
     .left-content {
       max-width: 520px;
-      flex: 1 1 40%;
+      flex: 0 0 auto;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding-left: 0px;
-      margin-left: 48px;
     }
 
     .main-title {
@@ -96,8 +93,7 @@
       font-size: 64px;
       font-weight: 700;
       line-height: 1.5;
-      margin-bottom: 26px;
-      text-align: left;
+      padding-bottom: 26px;
     }
 
     .main-subtitle {
@@ -105,8 +101,7 @@
       font-size: 24px;
       font-weight: 500;
       line-height: 1.5;
-      margin-bottom: 26px;
-      text-align: left;
+      padding-bottom: 26px;
     }
 
     .cta-btn {
@@ -117,9 +112,12 @@
       color: white;
       padding: 20px 40px;
       border-radius: 100px;
+      border: none;
       font-size: 20px;
       font-weight: 500;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
       text-decoration: none;
+      cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -134,75 +132,44 @@
     }
 
     .right-content {
-      flex: 1 1 55%;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      min-height: 500px;
     }
 
-    /* 掌印容器 */
     .paw-container {
       position: relative;
       width: 100%;
-      max-width: 1000px;
+      max-width: 800px;
       aspect-ratio: 1 / 1.05;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    /* 主掌心（狗狗圖片） */
     .paw-image {
-      position: relative;
       width: 100%;
       height: 100%;
       background: url('assets/intro/test.png') center/contain no-repeat;
-      background-color: var(--bg);
-    }
-
-
-    /* 心電圖線條 */
-    .paw-image::after {
-      content: '';
-      position: absolute;
-      bottom: 20%;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' fill='none'%3E%3Cpath d='M0 30 L80 30 L100 30 L120 10 L140 50 L160 20 L180 40 L200 30 L400 30' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.6'/%3E%3C/svg%3E") no-repeat center;
-      background-size: contain;
-      pointer-events: none;
-    }
-
-
-    .hero-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 24px;
     }
 
     .nav {
-      width: fit-content;
+      width: 544px;
+      height: 75px;
       background: white;
       border-top-right-radius: 100px;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 20px 40px 20px 48px;
-      margin-top: auto;
-      margin-left: 0;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
     .nav-item {
-      width: 100px;
-      text-align: left;
+      flex: 1;
+      text-align: center;
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
     }
 
     .nav-item a {
@@ -217,7 +184,6 @@
       color: var(--green);
       font-size: 24px;
       font-weight: 700;
-      line-height: 32px;
     }
 
     .nav-item a:hover {
@@ -228,7 +194,8 @@
       content: '';
       position: absolute;
       top: -13px;
-      left: 16px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 32px;
       height: 32px;
       background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.0089 14.9922C18.6307 16.6138 19.4871 18.9093 19.4197 21.4562C19.3581 23.9081 18.4431 26.4917 16.8476 28.7306C15.8856 30.0768 14.4338 30.8443 12.853 30.8443C12.8266 30.8443 12.8002 30.8443 12.7738 30.8437C11.1167 30.8173 9.76762 29.9662 9.0755 28.5092C8.50362 27.2994 7.72344 26.1981 6.7615 25.2367C5.80244 24.2762 4.69969 23.4975 3.49138 22.9229C2.03375 22.2316 1.18319 20.8837 1.15681 19.2248C1.13044 17.6135 1.90175 16.1298 3.2685 15.1535C5.50925 13.5568 8.09012 12.6423 10.5449 12.5793C13.0906 12.5143 15.387 13.3707 17.0089 14.9922ZM4.99881 10.2586C5.43875 10.505 5.92856 10.6275 6.43594 10.6275C6.93163 10.6275 7.44488 10.5117 7.95806 10.2788C8.91419 9.84359 9.753 9.03996 10.3219 8.01496C10.8938 6.99053 11.1343 5.85228 10.9994 4.81053C10.8528 3.68046 10.2926 2.79184 9.42156 2.30671C8.5505 1.82165 7.49763 1.8149 6.46231 2.28678C5.50619 2.72178 4.6645 3.52621 4.0955 4.55065C3.5265 5.57478 3.286 6.71303 3.42094 7.75478C3.56469 8.88484 4.12481 9.77378 4.99881 10.2586ZM16.7302 11.03C17.0177 11.0293 17.3197 11.0012 17.6277 10.9437C18.8712 10.7105 20.1206 10.0175 21.1471 8.99103C22.1707 7.9654 22.8658 6.7154 23.0975 5.4719C23.3527 4.11984 23.0417 2.92678 22.2264 2.11234C21.414 1.2979 20.2203 0.988151 18.8683 1.2419C17.6248 1.47446 16.3754 2.16809 15.3489 3.19371C14.3224 4.21934 13.6302 5.46928 13.3956 6.71315C13.1434 8.0649 13.4513 9.25803 14.2667 10.073C14.8972 10.7018 15.7507 11.03 16.7302 11.03ZM29.6935 22.5787C29.2096 21.7076 28.318 21.1468 27.1888 21.0011C26.1476 20.8668 25.0097 21.1067 23.9861 21.6762C22.9596 22.2461 22.156 23.087 21.7219 24.043C21.2497 25.0792 21.2556 26.1307 21.7425 27.0023C22.2264 27.8737 23.1151 28.4341 24.2442 28.5798C24.4349 28.6042 24.6255 28.6162 24.822 28.6162C25.6959 28.6162 26.6111 28.371 27.4498 27.905C28.4734 27.3348 29.277 26.4943 29.714 25.5378C30.1862 24.5017 30.1774 23.4505 29.6935 22.5792C29.6935 22.5793 29.6935 22.5793 29.6935 22.5787ZM29.8871 9.77234C29.0746 8.9579 27.8809 8.64878 26.5289 8.90184C25.2854 9.13503 24.036 9.82803 23.0095 10.8537C21.983 11.8798 21.2908 13.1298 21.0562 14.3737C20.804 15.7255 21.112 16.9185 21.9273 17.733C22.5579 18.3624 23.4113 18.69 24.3909 18.69C24.6783 18.69 24.9804 18.6613 25.2854 18.6038C26.5289 18.3707 27.7812 17.6776 28.8077 16.652C29.8312 15.6255 30.5264 14.3755 30.7581 13.132C31.0103 11.7799 30.7024 10.5874 29.8871 9.77234Z' fill='%23DBA53C' fill-opacity='0.17'/%3E%3C/svg%3E");
@@ -238,11 +205,7 @@
     /* RWD */
     @media (max-width: 1200px) {
       .hero {
-        padding: 32px 48px 96px 48px;
-      }
-
-      .hero-header {
-        margin-bottom: 80px;
+        padding: 32px 48px 0 48px;
       }
 
       .main-title {
@@ -260,16 +223,11 @@
 
     @media (max-width: 960px) {
       .hero {
-        padding: 24px 32px 80px 32px;
-      }
-
-      .hero-header {
-        margin-bottom: 48px;
+        padding: 24px 32px 0 32px;
       }
 
       .hero-main {
         flex-direction: column;
-        text-align: center;
       }
 
       .left-content {
@@ -286,24 +244,44 @@
 
       .right-content {
         width: 100%;
-        min-height: auto;
       }
 
       .paw-container {
         max-width: 420px;
-        width: 100%;
-        min-height: 400px;
       }
 
       .nav {
-        padding: 16px 32px;
-        gap: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        padding: 16px 0;
+        margin: 0;
+        z-index: 100;
+      }
+
+      .nav-item a {
+        font-size: 16px;
+        line-height: 1.3;
+        white-space: pre-line;
+      }
+
+      .nav-item.active a {
+        font-size: 18px;
+      }
+
+      .nav-item.active::before {
+        display: none;
       }
     }
 
     @media (max-width: 600px) {
       .hero {
-        padding: 20px 16px 72px 16px;
+        padding: 20px 16px 0 16px;
       }
 
       .logo {
@@ -324,32 +302,162 @@
         font-size: 18px;
       }
 
-      .right-content {
-        width: 100%;
-        min-height: auto;
-      }
-
       .paw-container {
         max-width: 320px;
-        width: 100%;
-        min-height: 320px;
-      }
-
-      .nav {
-        padding: 12px 16px;
-        gap: 20px;
-      }
-
-      .nav-item {
-        width: auto;
       }
 
       .nav-item a {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .nav-item.active a {
-        font-size: 18px;
+        font-size: 16px;
+      }
+    }
+
+    /* Popup 樣式 */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      border-radius: 40px;
+      padding: 48px 60px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #F1B23B;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .popup-close:hover {
+      transform: scale(1.1);
+    }
+
+    .popup-close::before,
+    .popup-close::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: white;
+    }
+
+    .popup-close::before {
+      transform: rotate(45deg);
+    }
+
+    .popup-close::after {
+      transform: rotate(-45deg);
+    }
+
+    .popup-title {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--dark);
+      padding-bottom: 32px;
+    }
+
+    .popup-form {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .popup-input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid #E0E0E0;
+      border-radius: 100px;
+      font-size: 16px;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .popup-input:focus {
+      border-color: var(--btn-green);
+    }
+
+    .popup-input::placeholder {
+      color: #B0B0B0;
+    }
+
+    .popup-submit {
+      padding: 16px 40px;
+      background: var(--btn-green);
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .popup-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(51, 166, 65, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .popup-content {
+        padding: 32px 24px;
+        border-radius: 24px;
+      }
+
+      .popup-title {
+        font-size: 20px;
+        padding-bottom: 24px;
+      }
+
+      .popup-form {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .popup-input {
+        width: 100%;
+      }
+
+      .popup-submit {
+        width: 100%;
+      }
+
+      .popup-close {
+        width: 36px;
+        height: 36px;
       }
     }
   </style>
@@ -367,7 +475,7 @@
         <div class="left-content">
           <h1 class="main-title">牠的一生<br>只為等你回家</h1>
           <p class="main-subtitle">而我們希望 牠等的每一天 都被愛好好記錄</p>
-          <a href="#" class="cta-btn">
+          <button type="button" class="cta-btn" id="registerBtn">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12.7566 11.2439C13.5689 12.0561 14.0478 13.2056 14.0141 14.4818C13.9834 17.0155 12.3238 19.6037 10.4238 21.2663C9.44344 22.0884 8.0003 22.0884 7.02 21.2663C5.12 19.6037 3.46031 17.0155 3.42969 14.4818C3.39594 13.2056 3.87484 12.0561 4.68719 11.2439C6.40219 9.52875 9.04156 9.52875 12.7566 11.2439Z" fill="white"/>
               <path d="M3.74906 7.68938C4.07906 7.9275 4.48969 8.05313 4.91625 8.05313C5.34281 8.05313 5.76 7.91813 6.17719 7.67063C7.07156 7.15688 7.84031 6.35813 8.37281 5.38313C8.90813 4.40813 9.13406 3.35813 9.00563 2.36813C8.87719 1.37813 8.37281 0.545625 7.58156 0.0603125C6.79031 -0.424063 5.82938 -0.434375 4.87781 0.0228125C3.92625 0.48 3.12844 1.27875 2.59594 2.25375C2.06344 3.22875 1.8375 4.27875 1.96594 5.26875C2.09438 6.25875 2.59875 7.09125 3.38906 7.57687C3.50344 7.62094 3.62438 7.65844 3.74906 7.68938Z" fill="white"/>
@@ -376,7 +484,7 @@
               <path d="M22.4156 7.32938C21.6553 6.56906 20.5969 6.28031 19.4147 6.50719C18.2372 6.73406 17.0606 7.38844 16.1062 8.34281C15.1519 9.29719 14.4975 10.4738 14.2706 11.6513C14.0437 12.8288 14.3325 13.8919 15.0881 14.6475C15.6066 15.1659 16.3912 15.5434 17.2922 15.5434C17.5472 15.5434 17.8144 15.5181 18.0844 15.4637C19.2619 15.2369 20.4384 14.5825 21.3928 13.6281C22.3472 12.6738 23.0016 11.4972 23.2284 10.3197C23.4553 9.14219 23.1666 8.07906 22.4109 7.32344L22.4156 7.32938Z" fill="white"/>
             </svg>
             登記毛孩ID
-          </a>
+          </button>
         </div>
 
         <div class="right-content">
@@ -395,13 +503,64 @@
         <a href="member.html">會員制度</a>
       </div>
       <div class="nav-item">
-        <a href="content_us .html">聯絡我們</a>
+        <a href="content_us.html">聯絡我們</a>
       </div>
       <div class="nav-item">
         <a href="content_us2.html">合作招募</a>
       </div>
     </nav>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-content">
+        <button type="button" class="popup-close" id="popupClose"></button>
+        <h2 class="popup-title">留下您的信箱以獲得通知</h2>
+        <form class="popup-form" id="emailForm">
+          <input type="email" class="popup-input" placeholder="請輸入信箱" required>
+          <button type="submit" class="popup-submit">送出</button>
+        </form>
+      </div>
+    </div>
   </div>
+
+  <script>
+    const registerBtn = document.getElementById('registerBtn');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupClose = document.getElementById('popupClose');
+    const emailForm = document.getElementById('emailForm');
+
+    registerBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      popupOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closePopup() {
+      popupOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    popupClose.addEventListener('click', closePopup);
+
+    popupOverlay.addEventListener('click', function(e) {
+      if (e.target === popupOverlay) {
+        closePopup();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+        closePopup();
+      }
+    });
+
+    emailForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      alert('感謝您的訂閱！\n您的信箱：' + email);
+      this.reset();
+      closePopup();
+    });
+  </script>
 </body>
 </html>
-
