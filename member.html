@@ -45,6 +45,7 @@
     }
 
     .hero {
+      position: relative;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -70,16 +71,18 @@
     /* 心電圖背景圖 */
     .heartbeat-bg {
       position: absolute;
-      top: 0px;
+      top: 0;
       right: 0;
-      width: 70%;
-      height: 280px;
+      width: 100%;
+      height: 800px;
       z-index: 0;
       background-image: url('assets/member/Group 2.png');
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: right center;
+      background-position: right top;
+      opacity: 1;
     }
+
 
     /* 主內容區 */
     .hero-main {
@@ -175,6 +178,7 @@
       align-items: center;
       justify-content: flex-start;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding-left: 48px;
     }
 
     .nav-item {
@@ -185,6 +189,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+
+    .nav-item:first-child {
+      padding-left: 0;
+      align-items: flex-start;
     }
 
     .nav-item a {
@@ -292,8 +301,9 @@
       }
 
       .heartbeat-bg {
-        width: 70%;
-        top: 40px;
+        width: 100%;
+        height: 200px;
+        background-size: cover;
       }
 
       .nav {
