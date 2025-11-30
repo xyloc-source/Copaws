@@ -234,15 +234,21 @@
       border-radius: 50%;
       background: var(--bg-amber);
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .card-arrow {
-      position: relative;
+      position: absolute;
       width: 24px;
       height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .nav {
