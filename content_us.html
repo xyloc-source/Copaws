@@ -195,6 +195,9 @@
 
     /* 下方導覽列，貼齊整頁寬度（跟 index 類似） */
     .nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
       width: 640px;
       height: 75px;
       background: white;
@@ -206,6 +209,7 @@
       padding-left: 48px;
       padding-right: 48px;
       gap: 8px;
+      z-index: 50;
     }
 
     .nav-item {
