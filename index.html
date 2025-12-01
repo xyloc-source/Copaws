@@ -148,7 +148,7 @@
     .paw-image {
       width: 100%;
       height: 100%;
-      background: url('assets/intro/test.png') center/contain no-repeat;
+      background: url('assets/intro/Mask group.png') center/cover no-repeat;
     }
 
     .nav {
@@ -210,6 +210,60 @@
       background-size: contain;
     }
 
+    @media (max-width: 960px) {
+      .hero {
+        padding-bottom: 120px;
+      }
+
+      .paw-image {
+        background-size: contain;
+      }
+
+      .nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        padding: 20px 16px;
+        margin: 0;
+        z-index: 100;
+        gap: 0;
+        justify-content: space-between;
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-item {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-item:first-child {
+        align-items: center;
+      }
+
+      .nav-item a {
+        font-size: 20px;
+        line-height: 1.4;
+        white-space: pre-line;
+        text-align: center;
+        display: inline-block;
+      }
+
+      .nav-item.active a {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .nav-item.active::before {
+        display: none;
+      }
+    }
+
     /* RWD */
     @media (max-width: 1200px) {
       .hero {
@@ -257,39 +311,11 @@
       .paw-container {
         max-width: 420px;
       }
-
-      .nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        border-top-left-radius: 24px;
-        border-top-right-radius: 24px;
-        padding: 16px 0;
-        margin: 0;
-        z-index: 100;
-      }
-
-      .nav-item a {
-        font-size: 16px;
-        line-height: 1.3;
-        white-space: pre-line;
-      }
-
-      .nav-item.active a {
-        font-size: 18px;
-      }
-
-      .nav-item.active::before {
-        display: none;
-      }
     }
 
     @media (max-width: 600px) {
       .hero {
-        padding: 20px 16px 0 16px;
+        padding: 20px 16px 100px 16px;
       }
 
       .logo {
@@ -314,8 +340,12 @@
         max-width: 320px;
       }
 
+      .nav {
+        padding: 16px 12px;
+      }
+
       .nav-item a {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .nav-item.active a {
@@ -505,16 +535,20 @@
 
     <nav class="nav">
       <div class="nav-item active">
-        <a href="index.html">品牌介紹</a>
+        <a href="index.html">品牌
+介紹</a>
       </div>
       <div class="nav-item">
-        <a href="member.html">會員制度</a>
+        <a href="member.html">會員
+制度</a>
       </div>
       <div class="nav-item">
-        <a href="content_us.html">聯絡我們</a>
+        <a href="content_us.html">聯絡
+我們</a>
       </div>
       <div class="nav-item">
-        <a href="content_us2.html">合作招募</a>
+        <a href="content_us2.html">合作
+招募</a>
       </div>
     </nav>
 
