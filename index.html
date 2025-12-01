@@ -40,15 +40,6 @@
       width: 100%;
     }
 
-    @media (min-width: 1440px) {
-      .page {
-        max-width: 1440px;
-        height: 920px;
-        margin: 0 auto;
-        overflow: hidden;
-      }
-    }
-
     .hero {
       flex: 1;
       display: flex;
@@ -214,8 +205,40 @@
       background-size: contain;
     }
 
+    /* RWD */
+    @media (max-width: 1200px) {
+      .hero {
+        padding: 32px 48px 0 48px;
+      }
+
+      .main-title {
+        font-size: 52px;
+      }
+
+      .main-subtitle {
+        font-size: 20px;
+      }
+
+      .paw-container {
+        max-width: 520px;
+      }
+
+      .nav {
+        width: 540px;
+      }
+
+      .nav-item a {
+        font-size: 20px;
+      }
+
+      .nav-item.active a {
+        font-size: 22px;
+      }
+    }
+
     @media (max-width: 960px) {
       .hero {
+        padding: 24px 32px 0 32px;
         padding-bottom: 120px;
       }
 
@@ -224,20 +247,17 @@
       }
 
       .nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
         width: 100%;
         height: auto;
         border-radius: 0;
         border-top-left-radius: 24px;
         border-top-right-radius: 24px;
+        border-top-right-radius: 24px;
         padding: 20px 16px;
-        margin: 0;
-        z-index: 100;
         gap: 0;
         justify-content: space-between;
         box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+        z-index: 100;
       }
 
       .nav-item {
@@ -261,31 +281,6 @@
       .nav-item.active a {
         font-size: 20px;
         font-weight: 700;
-      }
-    }
-
-    /* RWD */
-    @media (max-width: 1200px) {
-      .hero {
-        padding: 32px 48px 0 48px;
-      }
-
-      .main-title {
-        font-size: 52px;
-      }
-
-      .main-subtitle {
-        font-size: 20px;
-      }
-
-      .paw-container {
-        max-width: 520px;
-      }
-    }
-
-    @media (max-width: 960px) {
-      .hero {
-        padding: 24px 32px 0 32px;
       }
 
       .hero-main {
