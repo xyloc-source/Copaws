@@ -46,6 +46,9 @@
 
     .hero-header {
       padding-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
@@ -194,7 +197,7 @@
     }
 
     .nav-item a {
-      font-size: 22px;
+      font-size: 19px;
       color: var(--dark);
       font-weight: 400;
       line-height: 32px;
@@ -203,7 +206,7 @@
 
     .nav-item.active a {
       color: var(--green);
-      font-size: 24px;
+      font-size: 19px;
       font-weight: 700;
     }
 
@@ -221,6 +224,58 @@
       height: 32px;
       background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.0089 14.9922C18.6307 16.6138 19.4871 18.9093 19.4197 21.4562C19.3581 23.9081 18.4431 26.4917 16.8476 28.7306C15.8856 30.0768 14.4338 30.8443 12.853 30.8443C12.8266 30.8443 12.8002 30.8443 12.7738 30.8437C11.1167 30.8173 9.76762 29.9662 9.0755 28.5092C8.50362 27.2994 7.72344 26.1981 6.7615 25.2367C5.80244 24.2762 4.69969 23.4975 3.49138 22.9229C2.03375 22.2316 1.18319 20.8837 1.15681 19.2248C1.13044 17.6135 1.90175 16.1298 3.2685 15.1535C5.50925 13.5568 8.09012 12.6423 10.5449 12.5793C13.0906 12.5143 15.387 13.3707 17.0089 14.9922ZM4.99881 10.2586C5.43875 10.505 5.92856 10.6275 6.43594 10.6275C6.93163 10.6275 7.44488 10.5117 7.95806 10.2788C8.91419 9.84359 9.753 9.03996 10.3219 8.01496C10.8938 6.99053 11.1343 5.85228 10.9994 4.81053C10.8528 3.68046 10.2926 2.79184 9.42156 2.30671C8.5505 1.82165 7.49763 1.8149 6.46231 2.28678C5.50619 2.72178 4.6645 3.52621 4.0955 4.55065C3.5265 5.57478 3.286 6.71303 3.42094 7.75478C3.56469 8.88484 4.12481 9.77378 4.99881 10.2586ZM16.7302 11.03C17.0177 11.0293 17.3197 11.0012 17.6277 10.9437C18.8712 10.7105 20.1206 10.0175 21.1471 8.99103C22.1707 7.9654 22.8658 6.7154 23.0975 5.4719C23.3527 4.11984 23.0417 2.92678 22.2264 2.11234C21.414 1.2979 20.2203 0.988151 18.8683 1.2419C17.6248 1.47446 16.3754 2.16809 15.3489 3.19371C14.3224 4.21934 13.6302 5.46928 13.3956 6.71315C13.1434 8.0649 13.4513 9.25803 14.2667 10.073C14.8972 10.7018 15.7507 11.03 16.7302 11.03ZM29.6935 22.5787C29.2096 21.7076 28.318 21.1468 27.1888 21.0011C26.1476 20.8668 25.0097 21.1067 23.9861 21.6762C22.9596 22.2461 22.156 23.087 21.7219 24.043C21.2497 25.0792 21.2556 26.1307 21.7425 27.0023C22.2264 27.8737 23.1151 28.4341 24.2442 28.5798C24.4349 28.6042 24.6255 28.6162 24.822 28.6162C25.6959 28.6162 26.6111 28.371 27.4498 27.905C28.4734 27.3348 29.277 26.4943 29.714 25.5378C30.1862 24.5017 30.1774 23.4505 29.6935 22.5792C29.6935 22.5793 29.6935 22.5793 29.6935 22.5787ZM29.8871 9.77234C29.0746 8.9579 27.8809 8.64878 26.5289 8.90184C25.2854 9.13503 24.036 9.82803 23.0095 10.8537C21.983 11.8798 21.2908 13.1298 21.0562 14.3737C20.804 15.7255 21.112 16.9185 21.9273 17.733C22.5579 18.3624 23.4113 18.69 24.3909 18.69C24.6783 18.69 24.9804 18.6613 25.2854 18.6038C26.5289 18.3707 27.7812 17.6776 28.8077 16.652C29.8312 15.6255 30.5264 14.3755 30.7581 13.132C31.0103 11.7799 30.7024 10.5874 29.8871 9.77234Z' fill='%23DBA53C' fill-opacity='0.17'/%3E%3C/svg%3E");
       background-size: contain;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-left: auto;
+      padding-left: 24px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-links-mobile {
+      display: none;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .social-links-mobile a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links-mobile a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     /* ========= RWD ========= */
@@ -308,6 +363,14 @@
 
       .hero {
         padding-bottom: 120px;
+      }
+
+      .social-links {
+        display: none;
+      }
+
+      .social-links-mobile {
+        display: flex;
       }
 
       .nav {
@@ -415,6 +478,17 @@
         <div class="logo">
           <img src="assets/logo.png" alt="Copaws">
         </div>
+        <div class="social-links-mobile">
+          <a href="https://www.facebook.com/share/1C96Ec8Juz/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="assets/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/copaws_2025?igsh=MTRxZnNoMzZrNThodg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="assets/instagram.png" alt="Instagram">
+          </a>
+          <a href="mailto:sean202510@gmail.com" aria-label="Email">
+            <img src="assets/email.png" alt="Email">
+          </a>
+        </div>
       </header>
 
       <!-- 心電圖背景 -->
@@ -456,6 +530,17 @@
       <div class="nav-item">
         <a href="content_us2.html">合作
 招募</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1C96Ec8Juz/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <img src="assets/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/copaws_2025?igsh=MTRxZnNoMzZrNThodg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="assets/instagram.png" alt="Instagram">
+        </a>
+        <a href="mailto:sean202510@gmail.com" aria-label="Email">
+          <img src="assets/email.png" alt="Email">
+        </a>
       </div>
     </nav>
   </div>
