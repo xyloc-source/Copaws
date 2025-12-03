@@ -50,6 +50,9 @@
 
     .hero-header {
       padding-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
@@ -77,6 +80,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      margin-top: -120px;
     }
 
     .main-title {
@@ -134,6 +138,8 @@
       width: 100%;
       max-width: 800px;
       aspect-ratio: 1 / 1.05;
+      margin-top: -160px;
+      margin-right: -160px;
     }
 
     .paw-image {
@@ -158,6 +164,58 @@
       padding-right: 48px;
       gap: 8px;
       z-index: 50;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-left: auto;
+      padding-left: 24px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-links-mobile {
+      display: none;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .social-links-mobile a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links-mobile a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .nav-item {
@@ -244,6 +302,14 @@
 
       .paw-image {
         background-size: contain;
+      }
+
+      .social-links {
+        display: none;
+      }
+
+      .social-links-mobile {
+        display: flex;
       }
 
       .nav {
@@ -502,6 +568,17 @@
         <div class="logo">
           <img src="assets/logo.png" alt="Copaws">
         </div>
+        <div class="social-links-mobile">
+          <a href="https://www.facebook.com/share/1C96Ec8Juz/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="assets/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/copaws_2025?igsh=MTRxZnNoMzZrNThodg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="assets/instagram.png" alt="Instagram">
+          </a>
+          <a href="mailto:sean202510@gmail.com" aria-label="Email">
+            <img src="assets/email.png" alt="Email">
+          </a>
+        </div>
       </header>
 
       <section class="hero-main">
@@ -544,6 +621,17 @@
       <div class="nav-item">
         <a href="content_us2.html">合作
 招募</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1C96Ec8Juz/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <img src="assets/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/copaws_2025?igsh=MTRxZnNoMzZrNThodg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="assets/instagram.png" alt="Instagram">
+        </a>
+        <a href="mailto:sean202510@gmail.com" aria-label="Email">
+          <img src="assets/email.png" alt="Email">
+        </a>
       </div>
     </nav>
 
