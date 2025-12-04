@@ -71,6 +71,21 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .hero-header.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 16px 48px;
+      margin-bottom: 0;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      z-index: 100;
     }
 
     .logo {
@@ -393,6 +408,10 @@
         margin-bottom: 48px;
       }
 
+      .hero-header.scrolled {
+        padding: 16px 24px;
+      }
+
       .social-links {
         display: none;
       }
@@ -511,6 +530,10 @@
         margin-bottom: 32px;
       }
 
+      .hero-header.scrolled {
+        padding: 12px 16px;
+      }
+
       .main-title {
         font-size: 32px;
         line-height: 1.4;
@@ -577,6 +600,182 @@
         font-size: 16px;
       }
     }
+
+    /* 彈窗樣式 */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      backdrop-filter: blur(4px);
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      border-radius: 32px;
+      padding: 48px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .popup-close:hover {
+      transform: scale(1.1);
+    }
+
+    .popup-close::before,
+    .popup-close::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: white;
+    }
+
+    .popup-close::before {
+      transform: rotate(45deg);
+    }
+
+    .popup-close::after {
+      transform: rotate(-45deg);
+    }
+
+    .popup-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+      padding-right: 60px;
+    }
+
+    .popup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .form-input {
+      padding: 16px 20px;
+      border: 2px solid #E5E5E5;
+      border-radius: 12px;
+      font-size: 16px;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+
+    .form-textarea {
+      padding: 16px 20px;
+      border: 2px solid #E5E5E5;
+      border-radius: 12px;
+      font-size: 16px;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      min-height: 120px;
+      resize: vertical;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+
+    .form-submit {
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 100px;
+      padding: 16px 32px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    }
+
+    .form-submit:hover {
+      background: var(--dark-green);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .popup-content {
+        padding: 32px 24px;
+        border-radius: 24px;
+      }
+
+      .popup-title {
+        font-size: 24px;
+        margin-bottom: 24px;
+      }
+
+      .popup-close {
+        width: 40px;
+        height: 40px;
+        top: 16px;
+        right: 16px;
+      }
+
+      .form-label {
+        font-size: 16px;
+      }
+
+      .form-input,
+      .form-textarea {
+        font-size: 15px;
+        padding: 14px 16px;
+      }
+
+      .form-submit {
+        font-size: 16px;
+        padding: 14px 28px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -615,7 +814,7 @@
         <div class="right-content">
           <div class="cta-wrapper">
             <!-- 飼主卡片 -->
-            <a class="cta-card" href="content_us.html#pet-owner">
+            <a class="cta-card" href="#" data-popup="pet-owner">
               <div class="card-icon">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M24.57 62H18C14 62 10 61 10 55C10 49 10 46 13 42C14.2 40.41 15.55 39.61 17.13 38.71C17.15 38.77 17.18 38.83 17.21 38.89C17.69 39.86 18.62 40.44 19.7 40.44C20.62 40.44 21.47 40.03 22.29 39.63C22.85 39.37 23.6 39 24 39C24.27 39 25 39 25 40.96C24.92 41.59 23.64 43.49 22.8 44.75C20.93 47.52 19 50.38 19 53C19 56.14 21.81 59.82 24.57 62Z" fill="white"/>
@@ -643,7 +842,7 @@
             </a>
 
             <!-- 獸醫/旅宿卡片 -->
-            <a class="cta-card" href="content_us.html#veterinarian">
+            <a class="cta-card" href="#" data-popup="veterinarian">
               <div class="card-icon">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M57.6 53.6661H54.0121V27.9127C54.0121 26.718 53.0309 25.7367 51.8148 25.7367H44.1988V8.24342C44.1988 7.04876 43.2174 6.06738 42.0228 6.06738H21.9909C20.7962 6.06738 19.8148 7.04876 19.8148 8.24342V25.7367H12.1775C10.9615 25.7367 9.9802 26.718 9.9802 27.9127V53.6661H6.4C5.22083 53.6661 4.26666 54.6202 4.26666 55.7994C4.26666 56.9786 5.22083 57.9328 6.4 57.9328H57.6C58.7792 57.9328 59.7333 56.9786 59.7333 55.7994C59.7333 54.6202 58.7792 53.6661 57.6 53.6661ZM40.1242 33.9928C40.1242 33.502 40.5296 33.0967 41.0202 33.0967H44.3055C44.7962 33.0967 45.2016 33.502 45.2016 33.9928V37.2781C45.2016 37.7687 44.7962 38.174 44.3055 38.174H41.0202C40.5296 38.174 40.1242 37.7687 40.1242 37.2781V33.9928ZM23.8682 47.9447C23.8682 48.4354 23.4629 48.8407 22.9721 48.8407H19.6868C19.1962 48.8407 18.7909 48.4354 18.7909 47.9447V44.6594C18.7909 44.1687 19.1962 43.7633 19.6868 43.7633H22.9721C23.4629 43.7633 23.8682 44.1687 23.8682 44.6594V47.9447ZM23.9962 37.3633C23.9962 37.8753 23.5695 38.302 23.0575 38.302H19.6016C19.0894 38.302 18.6629 37.8753 18.6629 37.3633V33.9074C18.6629 33.3954 19.0894 32.9687 19.6016 32.9687H23.0575C23.5695 32.9687 23.9962 33.3954 23.9962 33.9074V37.3633ZM34.5561 47.9661C34.5561 48.4567 34.1508 48.862 33.6602 48.862H30.3322C29.8415 48.862 29.4362 48.4567 29.4362 47.9661V44.6381C29.4362 44.1473 29.8415 43.742 30.3322 43.742H33.6602C34.1508 43.742 34.5561 44.1473 34.5561 44.6381V47.9661ZM34.5561 37.2994C34.5561 37.79 34.1508 38.1954 33.6602 38.1954H30.3322C29.8415 38.1954 29.4362 37.79 29.4362 37.2994V33.9714C29.4362 33.4807 29.8415 33.0753 30.3322 33.0753H33.6602C34.1508 33.0753 34.5561 33.4807 34.5561 33.9714V37.2994ZM36.1775 18.9101H33.8095V21.2781C33.8095 22.4514 32.8495 23.4114 31.6762 23.4114C30.5029 23.4114 29.5428 22.4514 29.5428 21.2781V18.9101H27.1749C26.0016 18.9101 25.0415 17.9501 25.0415 16.7768C25.0415 15.6033 26.0016 14.6434 27.1749 14.6434H29.5428V12.2753C29.5428 11.102 30.5029 10.142 31.6762 10.142C32.8495 10.142 33.8095 11.102 33.8095 12.2753V14.6434H36.1775C37.3508 14.6434 38.3108 15.6033 38.3108 16.7768C38.3108 17.9501 37.3508 18.9101 36.1775 18.9101ZM45.3296 48.03C45.3296 48.542 44.9029 48.9687 44.3909 48.9687H40.9349C40.4228 48.9687 39.9962 48.542 39.9962 48.03V44.574C39.9962 44.062 40.4228 43.6354 40.9349 43.6354H44.3909C44.9029 43.6354 45.3296 44.062 45.3296 44.574V48.03Z" fill="white"/>
@@ -667,7 +866,7 @@
             </a>
 
             <!-- 品牌夥伴卡片 -->
-            <a class="cta-card" href="content_us.html#brand-partner">
+            <a class="cta-card" href="#" data-popup="brand-partner">
               <div class="card-icon">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_2102_90)">
@@ -734,5 +933,182 @@
       </div>
     </nav>
   </div>
+
+  <!-- 飼主彈窗 -->
+  <div class="popup-overlay" id="popup-pet-owner">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('pet-owner')"></button>
+      <h2 class="popup-title">飼主登記表單</h2>
+      <form class="popup-form" onsubmit="handleSubmit(event, 'pet-owner')">
+        <div class="form-group">
+          <label class="form-label">姓名</label>
+          <input type="text" class="form-input" name="name" required placeholder="請輸入您的姓名">
+        </div>
+        <div class="form-group">
+          <label class="form-label">電子信箱</label>
+          <input type="email" class="form-input" name="email" required placeholder="請輸入您的信箱">
+        </div>
+        <div class="form-group">
+          <label class="form-label">聯絡電話</label>
+          <input type="tel" class="form-input" name="phone" required placeholder="請輸入您的電話">
+        </div>
+        <div class="form-group">
+          <label class="form-label">毛孩資訊</label>
+          <textarea class="form-textarea" name="pet-info" placeholder="請簡述您的毛孩狀況（品種、年齡等）"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">想了解的內容</label>
+          <textarea class="form-textarea" name="message" placeholder="請告訴我們您想了解什麼"></textarea>
+        </div>
+        <button type="submit" class="form-submit">送出</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 獸醫/旅宿彈窗 -->
+  <div class="popup-overlay" id="popup-veterinarian">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('veterinarian')"></button>
+      <h2 class="popup-title">獸醫/旅宿合作申請</h2>
+      <form class="popup-form" onsubmit="handleSubmit(event, 'veterinarian')">
+        <div class="form-group">
+          <label class="form-label">機構名稱</label>
+          <input type="text" class="form-input" name="institution" required placeholder="請輸入機構名稱">
+        </div>
+        <div class="form-group">
+          <label class="form-label">聯絡人姓名</label>
+          <input type="text" class="form-input" name="name" required placeholder="請輸入聯絡人姓名">
+        </div>
+        <div class="form-group">
+          <label class="form-label">電子信箱</label>
+          <input type="email" class="form-input" name="email" required placeholder="請輸入信箱">
+        </div>
+        <div class="form-group">
+          <label class="form-label">聯絡電話</label>
+          <input type="tel" class="form-input" name="phone" required placeholder="請輸入電話">
+        </div>
+        <div class="form-group">
+          <label class="form-label">合作意向</label>
+          <textarea class="form-textarea" name="message" placeholder="請說明您的合作意向與期待"></textarea>
+        </div>
+        <button type="submit" class="form-submit">送出</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 品牌夥伴彈窗 -->
+  <div class="popup-overlay" id="popup-brand-partner">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('brand-partner')"></button>
+      <h2 class="popup-title">品牌合作申請</h2>
+      <form class="popup-form" onsubmit="handleSubmit(event, 'brand-partner')">
+        <div class="form-group">
+          <label class="form-label">品牌名稱</label>
+          <input type="text" class="form-input" name="brand" required placeholder="請輸入品牌名稱">
+        </div>
+        <div class="form-group">
+          <label class="form-label">聯絡人姓名</label>
+          <input type="text" class="form-input" name="name" required placeholder="請輸入聯絡人姓名">
+        </div>
+        <div class="form-group">
+          <label class="form-label">電子信箱</label>
+          <input type="email" class="form-input" name="email" required placeholder="請輸入信箱">
+        </div>
+        <div class="form-group">
+          <label class="form-label">聯絡電話</label>
+          <input type="tel" class="form-input" name="phone" required placeholder="請輸入電話">
+        </div>
+        <div class="form-group">
+          <label class="form-label">品牌介紹與合作提案</label>
+          <textarea class="form-textarea" name="message" placeholder="請簡述您的品牌與合作想法"></textarea>
+        </div>
+        <button type="submit" class="form-submit">送出</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const heroHeader = document.querySelector('.hero-header');
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        heroHeader.classList.add('scrolled');
+      } else {
+        heroHeader.classList.remove('scrolled');
+      }
+    });
+
+    // 開啟彈窗
+    function openPopup(type) {
+      const popup = document.getElementById('popup-' + type);
+      if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // 關閉彈窗
+    function closePopup(type) {
+      const popup = document.getElementById('popup-' + type);
+      if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // 點擊背景關閉彈窗
+    document.querySelectorAll('.popup-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // 綁定卡片點擊事件
+    document.querySelectorAll('.cta-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const popupType = this.getAttribute('data-popup');
+        if (popupType) {
+          openPopup(popupType);
+        }
+      });
+    });
+
+    // 表單提交處理
+    function handleSubmit(event, type) {
+      event.preventDefault();
+
+      // 收集表單數據
+      const formData = new FormData(event.target);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      // 這裡可以連接到您的後端 API 或 Google Forms
+      console.log('表單提交:', type, data);
+
+      // 顯示成功訊息
+      alert('感謝您的申請！我們會盡快與您聯繫。');
+
+      // 關閉彈窗並重置表單
+      closePopup(type);
+      event.target.reset();
+    }
+
+    // ESC 鍵關閉彈窗
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.popup-overlay.active').forEach(popup => {
+          popup.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
