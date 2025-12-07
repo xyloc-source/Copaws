@@ -1071,10 +1071,9 @@
     document.querySelectorAll('.cta-card').forEach(card => {
       card.addEventListener('click', function(e) {
         e.preventDefault();
-        const popupType = this.getAttribute('data-popup');
-        if (popupType) {
-          openPopup(popupType);
-        }
+        // 直接開啟 Google 表單
+        const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdcAo5t3XG6TYIB2N47XeqJHKkc6uoqBpde9M9_xtzUEyq_og/viewform?usp=dialog';
+        window.open(googleFormUrl, '_blank');
       });
     });
 
@@ -1089,15 +1088,17 @@
         data[key] = value;
       });
 
-      // 這裡可以連接到您的後端 API 或 Google Forms
-      console.log('表單提交:', type, data);
+      // 導向 Google 表單
+      const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdcAo5t3XG6TYIB2N47XeqJHKkc6uoqBpde9M9_xtzUEyq_og/viewform?usp=dialog';
 
-      // 顯示成功訊息
-      alert('感謝您的申請！我們會盡快與您聯繫。');
+      console.log('表單提交:', type, data);
 
       // 關閉彈窗並重置表單
       closePopup(type);
       event.target.reset();
+
+      // 開啟 Google 表單
+      window.open(googleFormUrl, '_blank');
     }
 
     // ESC 鍵關閉彈窗
