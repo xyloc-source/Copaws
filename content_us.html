@@ -163,11 +163,17 @@
       width: fit-content;
       max-width: 100%;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
     .feature-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card.clickable {
+      cursor: pointer;
     }
 
     .feature-image {
@@ -342,6 +348,13 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    /* 桌機版專用：夥伴連結左移 */
+    @media (min-width: 961px) {
+      .feature-card.offset-left {
+        margin-left: -60px;
+      }
     }
 
     /* ========= RWD：跟 index.html 一樣用 media query ========= */
@@ -595,7 +608,7 @@
         </div>
 
         <div class="right-content">
-          <article class="feature-card">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcAo5t3XG6TYIB2N47XeqJHKkc6uoqBpde9M9_xtzUEyq_og/viewform" target="_blank" rel="noopener" class="feature-card clickable">
             <img class="feature-image" src="assets/contentus/1.png" alt="毛孩 ID">
             <div class="feature-content">
               <div class="feature-header">
@@ -607,9 +620,9 @@
                 記錄每次看診、預防針、飲食與行為變化，<br>讓健康軌跡清晰可見。
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="feature-card">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeObmXmR0iFmaxWyzhVxKQNP3mh9Hf1wM1mOZjKn0AwPp-gYQ/viewform" target="_blank" rel="noopener" class="feature-card clickable offset-left">
             <img class="feature-image" src="assets/contentus/2.png" alt="夥伴連結">
             <div class="feature-content">
               <div class="feature-header">
@@ -621,7 +634,7 @@
                 讓資訊不再分散，照護決策更快、更準確。
               </p>
             </div>
-          </article>
+          </a>
 
           <article class="feature-card">
             <img class="feature-image" src="assets/contentus/3.png" alt="智慧洞察">
