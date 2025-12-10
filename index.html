@@ -164,7 +164,7 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       padding-left: 48px;
       padding-right: 48px;
-      gap: 8px;
+      gap: 20px;
       z-index: 50;
     }
 
@@ -174,14 +174,26 @@
       align-items: center;
       margin-left: auto;
       padding-left: 24px;
+      position: relative;
+    }
+
+    .social-links::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 32px;
+      background: #E5E5E5;
     }
 
     .social-links a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 32px;
+      height: 32px;
       transition: transform 0.2s ease;
     }
 
@@ -205,8 +217,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 32px;
+      height: 32px;
       transition: transform 0.2s ease;
     }
 
@@ -221,7 +233,7 @@
     }
 
     .nav-item {
-      flex: 1;
+      flex: 0 0 auto;
       text-align: center;
       position: relative;
       display: flex;
@@ -302,6 +314,10 @@
         padding-bottom: 120px;
       }
 
+      .hero-header {
+        margin-bottom: 48px;
+      }
+
       .hero-header.scrolled {
         position: fixed;
         top: 0;
@@ -376,11 +392,13 @@
 
       .hero-main {
         flex-direction: column;
+        align-items: flex-start;
       }
 
       .left-content {
         max-width: 100%;
         margin-top: 0;
+        width: 100%;
       }
 
       .main-title {
@@ -637,20 +655,16 @@
 
     <nav class="nav">
       <div class="nav-item active">
-        <a href="index.html">品牌
-介紹</a>
+        <a href="index.html">品牌介紹</a>
       </div>
       <div class="nav-item">
-        <a href="member.html">會員
-制度</a>
+        <a href="member.html">會員制度</a>
       </div>
       <div class="nav-item">
-        <a href="content_us.html">聯絡
-我們</a>
+        <a href="content_us.html">聯絡我們</a>
       </div>
       <div class="nav-item">
-        <a href="content_us2.html">合作
-招募</a>
+        <a href="content_us2.html">合作招募</a>
       </div>
       <div class="social-links">
         <a href="https://www.facebook.com/share/1C96Ec8Juz/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">

@@ -104,6 +104,9 @@
     .left-content {
       max-width: 520px;
       flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
 
     .main-title {
@@ -118,6 +121,24 @@
       color: var(--dark);
       font-size: 18px;
       line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    /* 聯絡我們按鈕 */
+    .contact-button {
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .contact-button img {
+      height: 60px;
+      width: auto;
     }
 
     /* 右側卡片區 */
@@ -209,12 +230,12 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       padding-left: 48px;
       padding-right: 48px;
-      gap: 8px;
+      gap: 20px;
       z-index: 50;
     }
 
     .nav-item {
-      flex: 1;
+      flex: 0 0 auto;
       text-align: center;
       position: relative;
       display: flex;
@@ -225,7 +246,7 @@
 
     .nav-item:first-child {
       padding-left: 0;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .nav-item a {
@@ -265,14 +286,26 @@
       align-items: center;
       margin-left: auto;
       padding-left: 24px;
+      position: relative;
+    }
+
+    .social-links::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 32px;
+      background: #E5E5E5;
     }
 
     .social-links a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 32px;
+      height: 32px;
       transition: transform 0.2s ease;
     }
 
@@ -296,8 +329,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 32px;
+      height: 32px;
       transition: transform 0.2s ease;
     }
 
@@ -372,6 +405,10 @@
 
       .main-description {
         font-size: 16px;
+      }
+
+      .contact-button img {
+        height: 50px;
       }
 
       .right-content {
@@ -473,6 +510,10 @@
         font-size: 15px;
       }
 
+      .contact-button img {
+        height: 45px;
+      }
+
       .feature-card {
         flex-direction: row;
         align-items: flex-start;
@@ -534,19 +575,24 @@
 
       <section class="hero-main">
         <div class="left-content">
-          <h1 class="main-title">讓照顧<br>變成能被看見的愛</h1>
-          <p class="main-description">
-            每一次看診、每一次旅宿、每一次互動，<br>
-            都是愛的一部分。<br><br>
-            Copaws 將這些日常紀錄整合為可視化的資料，<br>
-            讓飼主能更了解牠的健康狀況，<br>
-            讓獸醫能更精準地判斷，<br>
-            也讓品牌與旅宿能提供更貼心的照護體驗。
-          </p>
+          <div>
+            <h1 class="main-title">讓照顧<br>變成能被看見的愛</h1>
+            <p class="main-description">
+              每一次看診、每一次旅宿、每一次互動，<br>
+              都是愛的一部分。<br><br>
+              Copaws 將這些日常紀錄整合為可視化的資料，<br>
+              讓飼主能更了解牠的健康狀況，<br>
+              讓獸醫能更精準地判斷，<br>
+              也讓品牌與旅宿能提供更貼心的照護體驗。
+            </p>
+          </div>
+          <div class="contact-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeObmXmR0iFmaxWyzhVxKQNP3mh9Hf1wM1mOZjKn0AwPp-gYQ/viewform', '_blank')">
+            <img src="assets/contentus/btn.png" alt="聯絡我們">
+          </div>
         </div>
 
         <div class="right-content">
-          <article class="feature-card" style="cursor: pointer;" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdcAo5t3XG6TYIB2N47XeqJHKkc6uoqBpde9M9_xtzUEyq_og/viewform?usp=dialog', '_blank')">
+          <article class="feature-card">
             <img class="feature-image" src="assets/contentus/1.png" alt="毛孩 ID">
             <div class="feature-content">
               <div class="feature-header">
@@ -560,7 +606,7 @@
             </div>
           </article>
 
-          <article class="feature-card" style="cursor: pointer;" onclick="window.open('https://forms.gle/bp7ihcgu42HqaSvo8', '_blank')">
+          <article class="feature-card">
             <img class="feature-image" src="assets/contentus/2.png" alt="夥伴連結">
             <div class="feature-content">
               <div class="feature-header">
@@ -574,7 +620,7 @@
             </div>
           </article>
 
-          <article class="feature-card" style="cursor: pointer;" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdcAo5t3XG6TYIB2N47XeqJHKkc6uoqBpde9M9_xtzUEyq_og/viewform?usp=dialog', '_blank')">
+          <article class="feature-card">
             <img class="feature-image" src="assets/contentus/3.png" alt="智慧洞察">
             <div class="feature-content">
               <div class="feature-header">
@@ -593,20 +639,16 @@
 
     <nav class="nav">
       <div class="nav-item">
-        <a href="index.html">品牌
-介紹</a>
+        <a href="index.html">品牌介紹</a>
       </div>
       <div class="nav-item">
-        <a href="member.html">會員
-制度</a>
+        <a href="member.html">會員制度</a>
       </div>
       <div class="nav-item active">
-        <a href="content_us.html">聯絡
-我們</a>
+        <a href="content_us.html">聯絡我們</a>
       </div>
       <div class="nav-item">
-        <a href="content_us2.html">合作
-招募</a>
+        <a href="content_us2.html">合作招募</a>
       </div>
       <div class="social-links">
         <a href="https://www.facebook.com/share/1C96Ec8Juz/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
