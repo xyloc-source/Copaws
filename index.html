@@ -486,11 +486,16 @@
     .popup-content {
       background: white;
       border-radius: 40px;
-      padding: 48px 60px;
-      max-width: 600px;
+      padding: 48px 20px 20px 20px;
+      max-width: 700px;
       width: 90%;
       position: relative;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup-content iframe {
+      border-radius: 20px;
+      display: block;
     }
 
     .popup-close {
@@ -530,79 +535,16 @@
       transform: rotate(-45deg);
     }
 
-    .popup-title {
-      font-size: 24px;
-      font-weight: 500;
-      color: var(--dark);
-      padding-bottom: 32px;
-    }
-
-    .popup-form {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .popup-input {
-      flex: 1;
-      padding: 16px 24px;
-      border: 1px solid #E0E0E0;
-      border-radius: 100px;
-      font-size: 16px;
-      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-
-    .popup-input:focus {
-      border-color: var(--btn-green);
-    }
-
-    .popup-input::placeholder {
-      color: #B0B0B0;
-    }
-
-    .popup-submit {
-      padding: 16px 40px;
-      background: var(--btn-green);
-      color: white;
-      border: none;
-      border-radius: 100px;
-      font-size: 18px;
-      font-weight: 500;
-      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .popup-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(51, 166, 65, 0.3);
-    }
 
     @media (max-width: 600px) {
       .popup-content {
-        padding: 32px 24px;
+        padding: 32px 12px 12px 12px;
         border-radius: 24px;
+        max-width: 95%;
       }
 
-      .popup-title {
-        font-size: 20px;
-        padding-bottom: 24px;
-      }
-
-      .popup-form {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .popup-input {
-        width: 100%;
-      }
-
-      .popup-submit {
-        width: 100%;
+      .popup-content iframe {
+        height: 450px;
       }
 
       .popup-close {
@@ -686,11 +628,7 @@
     <div class="popup-overlay" id="popupOverlay">
       <div class="popup-content">
         <button type="button" class="popup-close" id="popupClose"></button>
-        <h2 class="popup-title">留下您的信箱以獲得通知</h2>
-        <form class="popup-form" id="emailForm">
-          <input type="email" class="popup-input" placeholder="請輸入信箱" required>
-          <button type="submit" class="popup-submit">送出</button>
-        </form>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSftp3y4XHwG6gwPCJO0P5rTlJLruEGZ8ZxdosYihAYBiDYrCg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
       </div>
     </div>
   </div>
@@ -699,7 +637,6 @@
     const registerBtn = document.getElementById('registerBtn');
     const popupOverlay = document.getElementById('popupOverlay');
     const popupClose = document.getElementById('popupClose');
-    const emailForm = document.getElementById('emailForm');
     const heroHeader = document.querySelector('.hero-header');
 
     // Header scroll effect
@@ -734,14 +671,6 @@
       if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
         closePopup();
       }
-    });
-
-    emailForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = this.querySelector('input[type="email"]').value;
-      alert('感謝您的訂閱！\n您的信箱：' + email);
-      this.reset();
-      closePopup();
     });
   </script>
 </body>
