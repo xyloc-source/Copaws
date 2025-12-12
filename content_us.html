@@ -114,7 +114,8 @@
       font-size: 50px;
       font-weight: 800;
       line-height: 1.2;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
+      margin-top: 96px;
     }
 
     .main-description {
@@ -147,7 +148,7 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
-      padding-right: 16px;
+      padding-right: 7vw;
       padding-left: 60px;
       align-items: flex-start;
     }
@@ -159,17 +160,18 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: none;
       width: fit-content;
       max-width: 100%;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
       color: inherit;
+      margin-left: auto !important;
     }
 
     .feature-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: none;
     }
 
     .feature-card.clickable {
@@ -188,6 +190,8 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      position: relative;
+      flex: 1;
     }
 
     .feature-header {
@@ -198,8 +202,9 @@
 
     .feature-title {
       color: var(--green);
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .feature-diamond {
@@ -209,14 +214,14 @@
 
     .feature-subtitle {
       color: var(--muted);
-      font-size: 18px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.4;
     }
 
     .feature-desc {
       color: var(--dark);
-      font-size: 16px;
+      font-size: 12px;
       font-weight: 400;
       line-height: 1.6;
     }
@@ -353,7 +358,8 @@
     /* 桌機版專用：夥伴連結左移 */
     @media (min-width: 961px) {
       .feature-card.offset-left {
-        margin-left: -60px;
+        margin-left: -60px !important;
+        transform: translateX(-20px);
       }
     }
 
@@ -414,6 +420,8 @@
 
       .main-title {
         font-size: 40px;
+        margin-bottom: 24px;
+        margin-top: 0;
       }
 
       .main-description {
@@ -502,11 +510,12 @@
       }
 
       .hero {
-        padding: 20px 16px 72px 16px;
+        padding: 20px 20px 72px 20px;
+        overflow-x: hidden;
       }
 
       .hero-header.scrolled {
-        padding: 12px 16px;
+        padding: 12px 20px;
       }
 
       .logo {
@@ -516,6 +525,7 @@
 
       .hero-main {
         gap: 32px;
+        overflow: visible;
       }
 
       .main-title {
@@ -533,22 +543,81 @@
       .feature-card {
         flex-direction: row;
         align-items: flex-start;
-        padding: 16px;
-        gap: 14px;
+        padding: 0;
+        gap: 0;
+        position: relative;
+        border-radius: 40px;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        margin-right: -20px;
+        max-width: none;
+      }
+
+      .right-content {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        align-items: flex-start;
+        overflow: visible;
+      }
+
+      .feature-card::after {
+        display: none;
+      }
+
+      .feature-card::before {
+        display: none;
       }
 
       .feature-image {
         width: 80px;
         height: 80px;
+        margin: 16px;
+        margin-right: 0;
+      }
+
+      .feature-content {
+        padding: 16px 20px;
+        border-radius: 100px 0 0 100px;
+        gap: 4px;
+        flex: 1;
+      }
+
+      .feature-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
       }
 
       .feature-title {
         font-size: 18px;
       }
 
-      .feature-subtitle,
-      .feature-desc {
+      .feature-subtitle {
         font-size: 14px;
+      }
+
+      .feature-diamond {
+        order: 3;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        position: relative;
+        color: #F1B23B;
+      }
+
+      .feature-diamond::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: #F1B23B;
+        top: 50%;
+        left: 0;
+      }
+
+      .feature-desc {
+        font-size: 12px;
       }
 
       .hero {
