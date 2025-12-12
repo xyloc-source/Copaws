@@ -548,10 +548,14 @@
         padding: 12px 16px;
       }
 
-      /* 2. 主標題字體大小 40px */
+      /* 2. 主標題字體大小 40px，確保 br 標籤生效 */
       .main-title {
-        font-size: 40px;
+        font-size: 40px !important;
         line-height: 1.4;
+      }
+
+      .main-title br {
+        display: block;
       }
 
       .main-description {
@@ -565,25 +569,25 @@
 
       /* 4. CTA 卡片內容靠左對齊 */
       .cta-card {
-        align-items: flex-start;
+        align-items: flex-start !important;
       }
 
       /* 3. 卡片 icon 尺寸調整 */
       .card-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 12px 0 0 12px;
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 12px 0 0 12px !important;
       }
 
       .card-icon svg {
-        width: 32px;
-        height: 32px;
+        width: 32px !important;
+        height: 32px !important;
       }
 
       /* 5. 卡片內容區塊圓角修正 */
       .card-content {
         padding: 16px 20px;
-        border-radius: 0 20px 20px 20px;
+        border-radius: 0 20px 20px 20px !important;
         gap: 16px;
       }
 
@@ -822,7 +826,7 @@
 
       <section class="hero-main">
         <div class="left-content">
-          <h1 class="main-title">一起<br>讓毛孩的世界更被理解</h1>
+          <h1 class="main-title">一起<br>讓毛孩的世界<br>更被理解</h1>
           <p class="main-description">Copaws 正在與獸醫院、旅宿與品牌夥伴攜手，
 打造一個能讓資料流動、讓照顧更有依據的生態圈。
 
