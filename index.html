@@ -263,6 +263,10 @@
       text-decoration: none;
     }
 
+    .nav-item a br {
+      display: none;
+    }
+
     .nav-item.active a {
       color: var(--green);
       font-size: 19px;
@@ -476,9 +480,12 @@
       .nav-item a {
         font-size: 18px;
         line-height: 1.4;
-        white-space: pre-line;
         text-align: center;
         display: inline-block;
+      }
+
+      .nav-item a br {
+        display: block;
       }
 
       .nav-item.active a {
