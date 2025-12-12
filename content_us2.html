@@ -33,7 +33,7 @@
 
     body {
       background: var(--bg-cream) url('assets/contentus2/Vector_.png') no-repeat;
-      background-size: 900px 550px;
+       background-size: 65% 100%;
       background-position: right top;
       background-attachment: fixed;
       font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
@@ -526,6 +526,11 @@
     }
 
     @media (max-width: 600px) {
+      /* 1. 背景顏色 */
+      body {
+        background: var(--bg-cream);
+      }
+
       .hero {
         padding: 20px 16px 0 16px;
       }
@@ -543,8 +548,9 @@
         padding: 12px 16px;
       }
 
+      /* 2. 主標題字體大小 40px */
       .main-title {
-        font-size: 32px;
+        font-size: 40px;
         line-height: 1.4;
       }
 
@@ -557,20 +563,27 @@
         gap: 20px;
       }
 
+      /* 4. CTA 卡片內容靠左對齊 */
+      .cta-card {
+        align-items: flex-start;
+      }
+
+      /* 3. 卡片 icon 尺寸調整 */
       .card-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 20px;
+        width: 56px;
+        height: 56px;
+        border-radius: 12px 0 0 12px;
       }
 
       .card-icon svg {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
       }
 
+      /* 5. 卡片內容區塊圓角修正 */
       .card-content {
         padding: 16px 20px;
-        border-radius: 20px;
+        border-radius: 0 20px 20px 20px;
         gap: 16px;
       }
 
